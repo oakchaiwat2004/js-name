@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM</title>
+    <script>
+        function MyFunc(money){
+            alert(money);
+            console.log(Number(document.getElementById('total_withdraw').innerHTML));
+        }
+    </script>
+</head>
+
+<body>
+    <H1>ระบบฝากถอนเงิน</H1>
+    จำนวนเงินที่ต้องการถอน
+    <!-- <button onclick="updateQty('-')">-</button> -->
+    <input type="text" id="qty" value="0">
+    <!-- <button onclick="updateQty('+')">+</button> -->
+    <p>
+        <button onclick="updateQty('+')">100</button>
+        <button onclick="updateQty('+')">500</button>
+        <button onclick="updateQty('+')">1000</button>
+        <button onclick="updateQty('+')">5000</button>
+    </p>
+
+    <p>
+        Cart: <span id="cart">0</span>
+    </p>
+
+    <p>
+    <h5>ประวัติการสั่งซื้อ</h5>
+    <ul id="history"></ul>
+    </p>
+    <script>
+        function checkout() {
+            let qty = document.getElementById('qty');
+            let val_qty = parseInt(qty.value);
+            let cart = document.getElementById('cart');
+            let val_cart = parseInt(cart.innerText);
+            let history = document.getElementById('history');
+            cart.innerHTML = val_qty + val_cart;
+
+
+            let li = document.createElement('li');
+            li.innerHTML = "Add" + val_qty
+
+            history.appendChild(li);
+
+            val_qty = 0;
+            qty.value = val_qty;
+        }
+
+        function updateQty(op) {
+            let qty = document.getElementById('qty');
+            let val_qty = parseInt(qty.value);
+            if (op === "+") {
+                val_qty++;
+            }
+            else if (op === "-") {
+                if (val_qty - 1 >= 0)
+                    val_qty--;
+            }
+
+            qty.value = val_qty;
+
+        }
+    </script>
+</body>
+
+</html>

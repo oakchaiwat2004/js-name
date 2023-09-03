@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="myname" onmouseup="showText(this)"></p>        
+    <div class="red" onmouseup="showText(this)">text1</div>
+    <div class="red" >text2</div>
+
+    <button onclick ="changeText()">Click me</button>
+    <button onclick="changeText2()">Re</button>
+
+
+    <script>
+        
+        function showText(element){
+        alert(element.style.color);
+        }
+        
+        function changeText(){
+        document.getElementById("myname").innerHTML = "chaiwat tingda"
+        let div = document.querySelectorAll(".red");
+        div.forEach((d,i)=>{
+        d.style.color="red";
+        })
+    }
+    function changeText2(){
+        document.getElementById("myname").innerHTML = ""
+        let div = document.querySelectorAll(".red");
+        div.forEach((dv,i)=>{
+        dv.style.color ="black";
+        })
+    }
+
+    </script>
+</body>
+</html>
+<button onclick="MyFunc(this.innerHTML)">100</button>
+    เงินที่เลือก = <button id="total_withdraw">300</button>

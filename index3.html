@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Name: <input type="text" id="txtName1" onkeyup="checkName()">
+    </p>
+    <p id="target"></p>
+    <p id="message"></p>
+
+    <script>
+        function checkName() {
+            var txtName = document.querySelector("#txtName1").value;
+            var length = txtName.length;
+            var message = document.getElementById('message')
+            document.getElementById('target').innerHTML =length
+
+            if(length < 8){
+                message.innerHTML = "Too short";
+                message.classList.add('red');
+                message.classList.remove('yellow');
+                message.classList.remove('green');
+            } 
+            else if(length < 16 )  {
+                message.innerHTML = "Normal";
+                message.classList.add('yellow');
+                message.classList.remove('red');
+                message.classList.remove('green');
+            }
+            else  {
+                message.innerHTML = "Too long";
+                message.classList.add('green');
+                message.classList.remove('red');
+                message.classList.remove('yellow');
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
